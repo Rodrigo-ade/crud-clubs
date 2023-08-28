@@ -1,7 +1,13 @@
 import express from 'express';
 import expressHandlebars from 'express-handlebars';
 import multer from 'multer';
-import { addClubSummaryToDatabase, addClubToDatabase, getClubsSummary } from './src/services/services.js';
+import {
+  addClubSummaryToDatabase,
+  addClubToDatabase,
+  getClubsSummary,
+  getClub,
+} from './src/services/services.js';
+import { transformBirthdateToAge } from './src/utilities/utilities.js';
 
 const app = express();
 const handlebars = expressHandlebars.create();
@@ -32,6 +38,7 @@ app.get('/form', (req, res) => {
     layout: 'main',
     data: {
       method: 'post',
+      website: 'newWebsite',
     },
   });
 });
@@ -45,6 +52,18 @@ app.post('/form', upload.single('logo_file'), async (req, res) => {
 
   res.render('success', {
     layout: 'main',
+  });
+});
+
+app.get('/info/club/:clubTla', async (req, res) => {
+  const { clubTla } = req.params;
+  const club = transformBirthdateToAge(await getClub(clubTla));
+
+  res.render('info', {
+    layout: 'main',
+    data: {
+      club,
+    },
   });
 });
 

@@ -16,3 +16,8 @@ export function addClub(club) {
   const teamFileName = `${club.tla}.json`;
   fs.appendFileSync(`src/data/teams/${teamFileName}`, JSON.stringify(club));
 }
+
+export async function getClub(clubTla) {
+  const club = JSON.parse(fs.readFileSync(`src/data/teams/${clubTla}.json`));
+  return club;
+}
