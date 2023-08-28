@@ -1,11 +1,15 @@
 import express from 'express';
 import expressHandlebars from 'express-handlebars';
 import multer from 'multer';
+import methodOverride from 'method-override';
+
 import {
   addClubSummaryToDatabase,
   addClubToDatabase,
   getClubsSummary,
   getClub,
+  deleteClub,
+  deleteClubSummary,
 } from './src/services/services.js';
 import { transformBirthdateToAge } from './src/utilities/utilities.js';
 
@@ -19,6 +23,7 @@ app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('views', './src/views');
 
+app.use(methodOverride('_method'));
 app.use(express.static('./src/data'));
 app.use('/uploads', express.static('uploads'));
 
@@ -64,6 +69,25 @@ app.get('/info/club/:clubTla', async (req, res) => {
     data: {
       club,
     },
+  });
+});
+
+app.get('/delete/club/:clubTla', (req, res) => {
+  const { clubTla } = req.params;
+
+  res.render('delete', {
+    layout: 'main',
+    clubTla,
+  });
+});
+
+app.delete('/delete/club/:clubTla', (req, res) => {
+  const { clubTla } = req.params;
+  deleteClubSummary(clubTla);
+  deleteClub(clubTla);
+
+  res.render('success', {
+    layout: 'main',
   });
 });
 

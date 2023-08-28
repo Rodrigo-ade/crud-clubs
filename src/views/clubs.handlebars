@@ -17,9 +17,11 @@
          <a href="/edit/club/{{club.tla}}">
             <button type="button" class="btn btn-info m-1">Edit</button>
          </a>
-          <a href="#">
-            <button type="button" class="btn btn-danger m-1">Delete</button>
-          </a>
+
+         <form action="/delete/club/{{club.tla}}" method="get" >
+            <button type="submit" method="delete" class="btn btn-danger m-1">Delete</button>
+         </form>
+          
         </div>
       </div>
       <div class="col-3 me-5">

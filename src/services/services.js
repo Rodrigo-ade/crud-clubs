@@ -3,6 +3,8 @@ import {
   addClubSummary as addClubSummaryToApi,
   addClub as addClubToApi,
   getClub as getClubFromApi,
+  deleteClub as deleteClubFromApi,
+  deleteClubSummary as deleteClubSummaryFromApi,
 } from '../api/api.js';
 
 import { mapClub, mapClubs, mapClubSummary } from '../mappers/mappers.js';
@@ -25,4 +27,12 @@ export async function addClubToDatabase(clubData) {
 export async function getClub(clubTla) {
   const club = await getClubFromApi(clubTla);
   return club;
+}
+
+export async function deleteClub(clubTla) {
+  deleteClubFromApi(clubTla);
+}
+
+export async function deleteClubSummary(clubTla) {
+  deleteClubSummaryFromApi(clubTla);
 }
