@@ -16,7 +16,6 @@ function getPlayerAge(dateOfBirth) {
 }
 
 export function transformBirthdateToAge(club) {
-  console.log(club);
   club.squad.forEach((member) => {
     member.age = getPlayerAge(member.dateOfBirth);
   });
