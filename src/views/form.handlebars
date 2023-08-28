@@ -1,20 +1,20 @@
-<form class="form-new-club mb-5" action="/form" enctype="multipart/form-data" method="{{data.method}}">
+<form class="form-new-club mb-5" action="{{data.action}}" enctype="multipart/form-data" method="{{data.method}}">
 
   <div style="width:70%; margin:0 auto;">
 
     <div class="mb-3">
       <label for="clubName" class="form-label">Club name</label>
-      <input type="text" class="form-control" id="clubName" name="name" placeholder="Boca Juniors" required>
+      <input type="text" class="form-control" id="clubName" name="name" placeholder="Boca Juniors" value="{{data.club.name}}" required>
     </div>
 
     <div class="mb-3">
       <label for="shortClubName" class="form-label">Short name</label>
-      <input type="text" class="form-control" id="shortClubName" name="shortName" placeholder="Boca" required>
+      <input type="text" class="form-control" id="shortClubName" name="shortName" placeholder="Boca" value="{{data.club.shortName}}" required>
     </div>
 
     <div class="mb-3">
       <label for="tlaClubName" class="form-label">Three-letter acronym</label>
-      <input type="text" class="form-control" id="tlaClubName" name="tla" placeholder="BOC" required>
+      <input type="text" class="form-control" id="tlaClubName" name="tla" placeholder="BOC" value="{{data.club.tla}}" required>
     </div>
 
     <div class="mb-3">
@@ -24,32 +24,32 @@
 
     <div class="mb-3">
       <label for="clubCountry" class="form-label">Country (location)</label>
-      <input type="text" class="form-control" id="clubCountry" name="country" placeholder="Argentina" required>
+      <input type="text" class="form-control" id="clubCountry" name="country" placeholder="Argentina" value="{{data.club.area.name}}" required>
     </div>
     
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="myteam@example.com" required>
+      <input type="email" class="form-control" id="email" name="email" placeholder="myteam@example.com" value="{{data.club.email}}" required>
     </div>
 
     <div class="mb-3">
       <label for="clubAddress" class="form-label">Address</label>
-      <input type="text" class="form-control" id="clubAddress" name="address" placeholder="Brandsen 805" required>
+      <input type="text" class="form-control" id="clubAddress" name="address" placeholder="Brandsen 805" value="{{data.club.address}}" required>
     </div>
 
     <div class="mb-3">
       <label for="clubWebsite" class="form-label">Website</label>
-      <input type="text" class="form-control" id="clubWebsite" name="{{data.website}}" placeholder="www.bocajuniors.com" required> 
+      <input type="text" class="form-control" id="clubWebsite" name="{{data.website}}" placeholder="www.bocajuniors.com" value="{{data.club.website}}"  required> 
     </div>
 
     <div class="mb-3">
       <label for="clubPhone" class="form-label">Phone number</label>
-      <input type="number" class="form-control" id="clubPhone" name="phone" placeholder="45681234" required>
+      <input type="text" class="form-control" id="clubPhone" name="phone" placeholder="45681234" value="{{data.club.phone}}" required>
     </div>
 
     <div class="mb-3">
       <label for="clubFoundation" class="form-label">Foundation year</label>
-      <input type="number" class="form-control" id="clubFoundation" name="founded" placeholder="1920" required>
+      <input type="number" class="form-control" id="clubFoundation" name="founded" placeholder="1920" value="{{data.club.founded}}" required>
     </div>
 
     <div class="row">
@@ -65,10 +65,10 @@
 
     <div class="mb-3">
       <label for="clubVenue" class="form-label">Venue</label>
-      <input type="text" class="form-control" id="clubVenue" name="venue" placeholder="La Bombonera" required>
+      <input type="text" class="form-control" id="clubVenue" name="venue" placeholder="La Bombonera" value="{{data.club.venue}}" required>
     </div>
 
   </div>
 
-  <button class="btn btn-success" type="submit">Add team</button>
+  <button class="btn btn-{{data.button.colorStyle}}" type="submit">{{data.button.text}}</button>
 </form>
