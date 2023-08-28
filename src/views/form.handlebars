@@ -4,68 +4,68 @@
 
     <div class="mb-3">
       <label for="clubName" class="form-label">Club name</label>
-      <input type="text" class="form-control" id="clubName" name="name" placeholder="Boca Juniors" value="{{data.club.name}}" required>
+      <input type="text" class="form-control" id="clubName" name="name" placeholder="Boca Juniors" value="{{data.club.name}}" {{data.requiredField}}>
     </div>
 
     <div class="mb-3">
       <label for="shortClubName" class="form-label">Short name</label>
-      <input type="text" class="form-control" id="shortClubName" name="shortName" placeholder="Boca" value="{{data.club.shortName}}" required>
+      <input type="text" class="form-control" id="shortClubName" name="shortName" placeholder="Boca" value="{{data.club.shortName}}" {{data.requiredField}}>
     </div>
 
     <div class="mb-3">
       <label for="tlaClubName" class="form-label">Three-letter acronym</label>
-      <input type="text" class="form-control" id="tlaClubName" name="tla" placeholder="BOC" value="{{data.club.tla}}" required>
+      <input type="text" class="form-control" id="tlaClubName" name="tla" placeholder="BOC" value="{{data.club.tla}}" {{data.requiredField}}>
     </div>
 
     <div class="mb-3">
       <label for="clubLogo" class="form-label">Club Logo</label>
-      <input class="form-control" type="file" id="clubLogo" name="logo_file" {{data.logoRequired}}>
+      <input class="form-control" type="file" id="clubLogo" name="logo_file" {{data.requiredField}}>
     </div>
 
     <div class="mb-3">
       <label for="clubCountry" class="form-label">Country (location)</label>
-      <input type="text" class="form-control" id="clubCountry" name="country" placeholder="Argentina" value="{{data.club.area.name}}" required>
+      <input type="text" class="form-control" id="clubCountry" name="country" placeholder="Argentina" value="{{data.club.area.name}}" {{data.requiredField}}>
     </div>
     
     <div class="mb-3">
       <label for="email" class="form-label">Email</label>
-      <input type="email" class="form-control" id="email" name="email" placeholder="myteam@example.com" value="{{data.club.email}}" required>
+      <input type="email" class="form-control" id="email" name="email" placeholder="myteam@example.com" value="{{data.club.email}}" {{data.requiredField}}>
     </div>
 
     <div class="mb-3">
       <label for="clubAddress" class="form-label">Address</label>
-      <input type="text" class="form-control" id="clubAddress" name="address" placeholder="Brandsen 805" value="{{data.club.address}}" required>
+      <input type="text" class="form-control" id="clubAddress" name="address" placeholder="Brandsen 805" value="{{data.club.address}}" {{data.requiredField}}>
     </div>
 
     <div class="mb-3">
       <label for="clubWebsite" class="form-label">Website</label>
-      <input type="text" class="form-control" id="clubWebsite" name="{{data.website}}" placeholder="www.bocajuniors.com" value="{{data.club.website}}"  required> 
+      <input type="text" class="form-control" id="clubWebsite" name="{{data.website}}" placeholder="www.bocajuniors.com" value="{{data.club.website}}"  {{data.requiredField}}> 
     </div>
 
     <div class="mb-3">
       <label for="clubPhone" class="form-label">Phone number</label>
-      <input type="text" class="form-control" id="clubPhone" name="phone" placeholder="45681234" value="{{data.club.phone}}" required>
+      <input type="text" class="form-control" id="clubPhone" name="phone" placeholder="45681234" value="{{data.club.phone}}" {{data.requiredField}}>
     </div>
 
     <div class="mb-3">
       <label for="clubFoundation" class="form-label">Foundation year</label>
-      <input type="number" class="form-control" id="clubFoundation" name="founded" placeholder="1920" value="{{data.club.founded}}" required>
+      <input type="number" class="form-control" id="clubFoundation" name="founded" placeholder="1920" value="{{data.club.founded}}" {{data.requiredField}}>
     </div>
 
     <div class="row">
       <div class="col mb-3">
         <label for="clubColor1" class="form-label">Color 1</label>
-        <input type="text" class="form-control" id="clubColor1" name="color1" placeholder="Blue" required>
+        <input type="text" class="form-control" id="clubColor1" name="color1" placeholder="Blue" {{data.requiredField}}>
       </div>
       <div class="col mb-3">
         <label for="clubColor2" class="form-label">Color 2</label>
-        <input type="text" class="form-control" id="clubColor2" name="color2" placeholder="Yellow" required>
+        <input type="text" class="form-control" id="clubColor2" name="color2" placeholder="Yellow" {{data.requiredField}}>
       </div>
     </div>
 
     <div class="mb-3">
       <label for="clubVenue" class="form-label">Venue</label>
-      <input type="text" class="form-control" id="clubVenue" name="venue" placeholder="La Bombonera" value="{{data.club.venue}}" required>
+      <input type="text" class="form-control" id="clubVenue" name="venue" placeholder="La Bombonera" value="{{data.club.venue}}" {{data.requiredField}}>
     </div>
 
   </div>

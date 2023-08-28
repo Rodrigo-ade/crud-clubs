@@ -45,7 +45,7 @@ app.get('/form', (req, res) => {
       method: 'post',
       action: '/form',
       website: 'newWebsite',
-      logoRequired: 'required',
+      requiredField: 'required',
       button: {
         text: 'Add Team',
         colorStyle: 'success',
@@ -113,6 +113,10 @@ app.get('/edit/club/:clubTla', async (req, res) => {
       club,
     },
   });
+});
+
+app.put('/edit/club/:clubTla', upload.single('logo_file'), (req, res) => {
+
 });
 
 app.listen(PORT);
