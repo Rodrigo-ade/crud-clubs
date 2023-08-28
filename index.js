@@ -43,7 +43,12 @@ app.get('/form', (req, res) => {
     layout: 'main',
     data: {
       method: 'post',
+      action: '/form',
       website: 'newWebsite',
+      button: {
+        text: 'Add Team',
+        colorStyle: 'success',
+      },
     },
   });
 });
@@ -88,6 +93,24 @@ app.delete('/delete/club/:clubTla', (req, res) => {
 
   res.render('success', {
     layout: 'main',
+  });
+});
+
+app.get('/edit/club/:clubTla', async (req, res) => {
+  const { clubTla } = req.params;
+  const club = await getClub(clubTla);
+  res.render('form', {
+    layout: 'main',
+    data: {
+      method: 'post',
+      action: `/edit/club/${clubTla}?_method=put`,
+      website: 'website',
+      button: {
+        text: 'Update',
+        colorStyle: 'warning',
+      },
+      club,
+    },
   });
 });
 
