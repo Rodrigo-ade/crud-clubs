@@ -2,8 +2,6 @@ export default class ClubSummary {
   area = {};
 
   constructor(
-    id,
-    areaId,
     areaName,
     name,
     shortName,
@@ -17,9 +15,9 @@ export default class ClubSummary {
     clubColors,
     venue,
     lastUpdated,
+    id = null,
+    areaId = null,
   ) {
-    this.id = id;
-    this.area.id = areaId;
     this.area.name = areaName;
     this.name = name;
     this.shortName = shortName;
@@ -33,5 +31,7 @@ export default class ClubSummary {
     this.clubColors = clubColors;
     this.venue = venue;
     this.lastUpdated = lastUpdated;
+    this.id = id;
+    this.area.id = areaId;
   }
 }
