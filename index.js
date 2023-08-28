@@ -1,9 +1,11 @@
 import express from 'express';
 import expressHandlebars from 'express-handlebars';
-import { getClubsSummary } from './src/services/services.js';
+import multer from 'multer';
+import { addClubSummaryToDatabase, addClubToDatabase, getClubsSummary } from './src/services/services.js';
 
 const app = express();
 const handlebars = expressHandlebars.create();
+const upload = multer({ dest: './src/data/uploads/' });
 
 const PORT = 8080;
 
@@ -22,6 +24,27 @@ app.get('/', async (req, res) => {
     data: {
       clubsSummary,
     },
+  });
+});
+
+app.get('/form', (req, res) => {
+  res.render('form', {
+    layout: 'main',
+    data: {
+      method: 'post',
+    },
+  });
+});
+
+app.post('/form', upload.single('logo_file'), async (req, res) => {
+  const data = req.body;
+  const imageName = req.file.filename;
+  data.crestUrl = `/uploads/${imageName}`;
+  addClubSummaryToDatabase(data);
+  addClubToDatabase(data);
+
+  res.render('success', {
+    layout: 'main',
   });
 });
 
