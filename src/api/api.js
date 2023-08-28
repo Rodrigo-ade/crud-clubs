@@ -5,6 +5,12 @@ export async function getClubsSummary() {
   return clubs;
 }
 
+export async function getClubSummary(clubTla) {
+  const clubsSummary = await JSON.parse(fs.readFileSync('src/data/teams.json'));
+  const indexClub = clubsSummary.findIndex((club) => club.tla === clubTla);
+  return clubsSummary[indexClub];
+}
+
 const CLUBS_FILE_PATH = 'src/data/teams.json';
 
 export function addClubSummary(clubSummary) {

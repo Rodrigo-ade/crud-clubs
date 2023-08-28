@@ -10,6 +10,7 @@ import {
   getClub,
   deleteClub,
   deleteClubSummary,
+  updateClub,
 } from './src/services/services.js';
 import { transformBirthdateToAge } from './src/utilities/utilities.js';
 
@@ -106,6 +107,7 @@ app.get('/edit/club/:clubTla', async (req, res) => {
       method: 'post',
       action: `/edit/club/${clubTla}?_method=put`,
       website: 'website',
+      readOnlyField: 'readonly',
       button: {
         text: 'Update',
         colorStyle: 'warning',
@@ -115,8 +117,18 @@ app.get('/edit/club/:clubTla', async (req, res) => {
   });
 });
 
-app.put('/edit/club/:clubTla', upload.single('logo_file'), (req, res) => {
+app.put('/edit/club/:clubTla', upload.single('logo_file'), async (req, res) => {
+  const data = req.body;
+  if (req.file) {
+    const imageName = req.file.filename;
+    data.crestUrl = `/uploads/${imageName}`;
+  }
 
+  await updateClub(data);
+
+  res.render('success', {
+    layout: 'main',
+  });
 });
 
 app.listen(PORT);
