@@ -45,6 +45,7 @@ app.get('/form', (req, res) => {
       method: 'post',
       action: '/form',
       website: 'newWebsite',
+      logoRequired: 'required',
       button: {
         text: 'Add Team',
         colorStyle: 'success',
