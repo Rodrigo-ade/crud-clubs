@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Clubs</title>
+    <style>
+      body{
+        background-color: #282828;
+        color: white;
+      }
+      .team-container{
+        background-color: #383838;
+        border-color: #9c9c9c;
+        color: #ddd;
+      }
+      .team-container:hover{
+        background-color: #bebebe;
+        color: #383838;
+      }
+      .full-team-container{
+        color: #f0f0f0;
+        background-color: #383838;
+        margin: 0 auto;
+        border-top-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+      }
+      .team-roster{
+        margin: 0 auto;
+        width: 90%;
+      }
+      .team-roster tbody tr td:first-child{
+        color: #26ffbe;
+      }
+      .team-roster tbody tr{
+        border-bottom: 1px solid #3c4f4a;
+      }
+      .form-new-club input{
+        background-color: #404040;
+        border-color: #26ffbe;
+        color: #26ffbe;
+      }
+      .form-new-club input:focus{
+        background-color: #404040;
+        border-color: #26ffbe;
+        color: #26ffbe;
+      }
+      .form-new-club input::placeholder{
+        color: rgb(125, 125, 125);
+      }
+    </style>
+</head>
+<body>
+
+  {{>navbar}}
+
+  <div class="container mt-2">
+    {{{body}}}
+  </div>
+
+</body>
+</html>
