@@ -8,14 +8,11 @@ import {
   getClubSummary as getClubSummaryFromApi,
 } from '../api/api.js';
 
-import getMapLocationFromApi from '../api/geocoding.js';
-
 import {
   mapClub,
   mapClubs,
   mapClubSummary,
   mapAddress,
-  mapLocation,
 } from '../mappers/mappers.js';
 
 export async function getClubsSummary() {
@@ -65,6 +62,5 @@ export async function updateClub(clubData) {
 }
 
 export async function getMapLocation(address) {
-  const convertedAddress = mapAddress(address);
-  return mapLocation(await getMapLocationFromApi(convertedAddress));
+  return mapAddress(address);
 }

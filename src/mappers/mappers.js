@@ -66,14 +66,9 @@ export function mapClub(clubData) {
 }
 
 export function mapAddress(address) {
-  return address.replaceAll(' ', '%20');
-}
-
-export function mapLocation(location) {
-  return {
-    minLon: location[2],
-    minLat: location[0],
-    maxLong: location[3],
-    maxLat: location[1],
-  };
+  let mappedAddress = address;
+  if (!mappedAddress.includes('stadium') || !mapAddress.includes('Stadium')) {
+    mappedAddress = mappedAddress.concat(' stadium');
+  }
+  return mappedAddress.replaceAll(' ', '%20');
 }

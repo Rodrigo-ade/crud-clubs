@@ -71,9 +71,7 @@ app.post('/form', upload.single('logo_file'), async (req, res) => {
 app.get('/info/club/:clubTla', async (req, res) => {
   const { clubTla } = req.params;
   const club = transformBirthdateToAge(await getClub(clubTla));
-
-  const location = await getMapLocation(club.address);
-
+  const location = await getMapLocation(club.venue);
   res.render('info', {
     layout: 'main',
     data: {
