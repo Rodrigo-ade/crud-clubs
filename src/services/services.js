@@ -8,7 +8,15 @@ import {
   getClubSummary as getClubSummaryFromApi,
 } from '../api/api.js';
 
-import { mapClub, mapClubs, mapClubSummary } from '../mappers/mappers.js';
+import getMapLocationFromApi from '../api/geocoding.js';
+
+import {
+  mapClub,
+  mapClubs,
+  mapClubSummary,
+  mapAddress,
+  mapLocation,
+} from '../mappers/mappers.js';
 
 export async function getClubsSummary() {
   const clubs = mapClubs(await getClubsSummaryFromApi());
@@ -54,4 +62,9 @@ export async function updateClub(clubData) {
   const newClub = mapClub(data);
   deleteClubFromApi(oldClub.tla);
   addClubToDatabase(newClub);
+}
+
+export async function getMapLocation(address) {
+  const convertedAddress = mapAddress(address);
+  return mapLocation(await getMapLocationFromApi(convertedAddress));
 }

@@ -11,6 +11,7 @@ import {
   deleteClub,
   deleteClubSummary,
   updateClub,
+  getMapLocation,
 } from './src/services/services.js';
 import { transformBirthdateToAge } from './src/utilities/utilities.js';
 
@@ -71,10 +72,13 @@ app.get('/info/club/:clubTla', async (req, res) => {
   const { clubTla } = req.params;
   const club = transformBirthdateToAge(await getClub(clubTla));
 
+  const location = await getMapLocation(club.address);
+
   res.render('info', {
     layout: 'main',
     data: {
       club,
+      location,
     },
   });
 });
