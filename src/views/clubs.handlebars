@@ -1,0 +1,34 @@
+<div class="list-group mb-2">
+  {{#each data.clubsSummary as |club|}}
+  <div class="team-container list-group-item list-group-item-action">
+    <div class="row">
+      <div class="col-3">
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="mb-1">{{club.name}}</h5>
+        </div>
+          <p class="mb-1">{{club.venue}}</p>
+          <small>Founded in <span class="badge text-bg-warning">{{club.founded}}</span></small>    
+      </div>
+      <div class="col text-center">
+        <div class="btn-group mt-3" role="group" aria-label="Basic mixed styles example">
+          <a href="/info/club/{{club.tla}}">
+            <button type="button" class="btn btn-success m-1">Info</button>
+          </a>
+         <a href="/edit/club/{{club.tla}}">
+            <button type="button" class="btn btn-info m-1">Edit</button>
+         </a>
+
+         <form action="/delete/club/{{club.tla}}" method="get" >
+            <button type="submit" method="delete" class="btn btn-danger m-1">Delete</button>
+         </form>
+          
+        </div>
+      </div>
+      <div class="col-3 me-5">
+          <img class="img-fluid float-end" src="{{club.crestUrl}}" alt="{{club.name}} logo" style="max-width: 70px;">
+      </div>
+    </div>
+  </div>
+  {{/each}}
+  
+</div>

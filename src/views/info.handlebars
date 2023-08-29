@@ -1,0 +1,67 @@
+<div class="full-team-container text-center p-3 mb-3">
+  <img class="img-fluid" style="max-width: 200px;" src="{{data.club.crestUrl}}" alt="{{data.club.name}} logo">
+  <div class="row mt-3 mb-3">
+    <h4 style="color: #26ffbe;">{{data.club.name}}</h4>
+    <h6>from <strong>{{data.club.area.name}}</strong></h6>
+    <p>{{data.club.venue}} ({{data.club.address}})</p>
+    <p>
+      <a href="{{data.club.website}}" target="_blank" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Official Website</a>
+    </p>
+  </div>
+
+  {{>map parameter=data.location}}
+
+  <div class="row text-start">
+    <div class="col-3">
+     <a href="/"><button class="btn btn-danger">Go Back to clubs list</button></a>
+    </div>
+  </div>
+
+  <hr style="color: #26ffbe;">
+
+  <div class="row ms-2 text-start">
+    <div class="col" style="display: flex;">
+      <strong>Active competitions:</strong>
+      {{#each data.club.activeCompetitions as |competition|}}
+      <span class="badge text-bg-secondary ms-1">{{competition.name}}</span>
+      {{/each}}
+    </div>
+  </div>
+
+  <hr style="color: #26ffbe;">
+
+  <div class="row ms-2 text-start">
+    <h3 style="color: #26ffbe;">Roster</h3>
+    
+    <table class="team-roster text-center">
+      <thead>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Position</th>
+        <th>Nationality</th>
+      </thead>
+      <tbody>
+        {{#each data.club.squad as |squadMember|}}
+        <tr>
+          <td>{{squadMember.name}}</td>
+          <td>{{squadMember.age}}</td>
+          {{#if squadMember.position}}
+            <td>{{squadMember.position}}</td>
+            {{else}}
+            <td>Coach</td>
+          {{/if}}
+          <td>{{squadMember.nationality}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    
+  </div>
+
+  <hr class="mt-5" style="color: #26ffbe;">
+  <div class="col text-start" style="display: flex;">
+    <p class="fw-light me-2">{{data.club.phone}}</p>
+    <p class="fw-light me-2">{{data.club.email}}</p>
+  </div>
+
+</div>
